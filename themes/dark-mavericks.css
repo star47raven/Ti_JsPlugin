@@ -1,0 +1,281 @@
+:root {
+  --ti-blind: #222;
+}
+body {
+  background: #222;
+  color: white;
+}
+#ti-listHeader {
+  margin: .75rem;
+  width: calc(100vw - 1.5rem);
+  height: 4.4rem;
+  vertical-align: middle;
+  align-items: center;
+  padding: 0 1.0rem;
+  border-radius: 2.2rem;
+  border: .1rem white rgba(255,255,255,.2);
+  opacity: .7;
+}
+#ti-listHeader i {
+  margin-bottom: -.4rem;
+}
+#ti-listHolder {
+  padding-top: 7.0rem;
+}
+#ti-listHolder .ti-witem > .ti-xitem > span {
+  border-radius: .6rem;
+  box-shadow: 0 0 .4rem rgba(255,255,255,.3);
+  transition: .25s ease;
+}
+#ti-listHolder .ti-witem > .ti-xitem .ti-name,
+#ti-listHolder .ti-witem > .ti-xitem:hover .ti-name {
+  color: white
+}
+#ti-listHolder .ti-witem {
+  transition: .25s ease;
+}
+#ti-listHolder:hover .ti-witem, #ti-listHolder:hover .ti-witem:hover {
+  background: transparent;
+}
+#ti-listHolder .ti-witem:hover > .ti-xitem > span {
+  box-shadow: 0 0 .6rem rgba(255,255,255,.5);
+}
+#ti-cardWrapper > div > div > div {
+  background: transparent;
+  box-shadow: none;
+  /*border: 1px dashed rgba(255,255,255,.2);*/
+  border-radius: 1.2rem;
+}
+#ti-cardWrapper > div > div > div:not(:hover) {
+  background: transparent;
+}
+.ti-title {
+  border-bottom: 1px dashed rgba(255,255,255,.5);
+  padding-bottom: 1.5rem;
+}
+.ti-btn {
+  box-shadow: none;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border-radius: 3.5rem;
+  border: 1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.3);
+}
+.ti-btn.ti-dead {
+  background: rgba(255,255,255,.1);
+} 
+.ti-btn.ti-locked {
+  background: transparent;
+  opacity: .5;
+} 
+.ti-seperator {
+  color: rgba(255,255,255,.7) !important;
+}
+#ti-cardWrapper .flex-tr:not(.fulfilled) > div > div::before {
+  border-radius: 1.2rem;
+  padding: 2rem 3rem;
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(200,0,0,.4);
+  border: none;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem {
+  border: 1px solid transparent;
+  border-radius: 100px;
+  background-color: rgba(255,255,255,.1);
+  padding: 0 1.0rem;
+  margin: .5rem 0;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem:not(.selected):not(.disabled):hover {
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.2);
+}
+#ti-pickHolder .ti-xcontainer .ti-witem:not(.selected):not(.disabled):hover .ti-name {
+  padding-right: 1.0rem;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem > .ti-xitem > span {
+  border-radius: 100%;
+  height: 1.5rem;
+  width: 1.5rem !important;
+  margin-top: 1.0rem;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem > .ti-xitem > .ti-name > div {
+  opacity: 1;
+  margin: 0;
+  color: white;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem > .ti-xitem > .ti-name > span {
+  opacity: .7;
+  margin: 0;
+  color: white;
+}
+#ti-bannerHolder img {
+  border: 4px solid rgba(255,255,255,.4);
+  border-radius: .6rem;
+}
+#ti-eventHolder .ti-xplate {
+  color: var(--ti-accent)
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.disabled {
+  background: rgba(255,255,255,.05);
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.disabled > .ti-xitem > span {
+  background: rgba(255,255,255,.1);
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.disabled > .ti-xitem > .ti-name > div {
+  opacity: .6;
+  margin: 0;
+  color: white;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.disabled > .ti-xitem > .ti-name > span {
+  opacity: .3;
+  margin: 0;
+  color: white;
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.selected {
+  background: var(--ti-accent);
+  
+}
+#ti-pickHolder .ti-xcontainer .ti-witem.selected > .ti-xitem > span {
+  background: rgba(255,255,255,.5);
+}
+#ti-pickHolder .ti-xcontainer .ti-witem:not(.selected):not(.disabled):hover > .ti-xitem > span {
+  
+}
+#ti-seatHolder .ti-seperator {
+  margin-top: 1.2rem;
+}
+#ti-seatHolder .ti-seperator span {
+  border-radius: 1.2rem 1.2rem 0 0;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: .7rem .7rem .2rem .7rem;
+  margin: 0 .1rem;
+  color: rgba(255,255,255,.3);
+}
+#ti-seatHolder .ti-seperator span.selected {
+  border-radius: 1.2rem 1.2rem 0 0;
+  background: var(--ti-accent);
+  padding: .7rem .7rem .2rem .7rem;
+  margin: 0 1rem;
+  color: white;
+  border-bottom: 2px solid white;
+}
+.ti-xcontainer .ti-duo .ti-rightside {
+  color: rgba(255,255,255,.7) !important;
+}
+.exotic-input {
+  border: 1px solid white;
+  border-radius: 1.6rem;
+  background: rgba(0,0,0,.2);
+  box-shadow: none;
+  color: white;
+}
+.exotic-input:focus {
+  background: var(--ti-accent);
+}
+.exotic-input.textbox {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.exotic-input.checkbox[check='true']::after {
+  height: 1.4rem;
+  width: 1.4rem;
+  margin: .4rem;
+}
+.exotic-input.checkbox[check='true']+span {
+  color: white;
+}
+div.checkbox:not([check="true"]) + span, div.radiobox:not([check="true"]) + span {
+  color: rgba(255, 255, 255, .6);
+}
+#ti-cardWrapper i.material-icons {
+  color: white !important;
+  opacity: .87;
+}
+.zb-seatmap .row-head {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+.zb-seatmap .row:hover .row-head {
+  background-color: transparent;
+}
+.zb-seatmap .row {
+  padding-top: .2rem;
+  padding-bottom: 0rem;
+}
+.zb-seatmap .row:hover {
+  background-color: rgba(255,255,255,.1);
+  border-radius: 1.6rem;
+}
+.zb-seatmap .chair, .zb-seatmap .locked-chair {
+  margin-top: 0 !important;
+  border-radius: .6rem !important;
+}
+
+.zb-seatmap .chair.selected {
+  background-color: var(--ti-accent) !important;
+  box-shadow: 0 0 3px rgba(255,255,255,.75);
+}
+.zb-seatmap .chair, .zb-seatmap .instance.normal {
+  background-color: rgba(255,255,255,.2)
+}
+.zb-seatmap .chair:not(.pending):not(.reserved):hover {
+  background-color: rgba(255,255,255,.6);
+  color: black
+}
+.zb-seatmap .locked-chair, .zb-seatmap .instance.locked-chair {
+  background-color: rgba(0, 0, 0, .2) !important;
+}
+.zb-seatmap .chair.reserved, .zb-seatmap .instance.reserved {
+  background-color: rgba(200, 0, 0, .2) !important;
+}
+.zb-seatmap .chair.pending, .zb-seatmap .instance.pending {
+  background-color: rgba(200, 150, 0, .5) !important;
+  color: white !important;
+}
+.zb-seatmap .scene {
+  border: 0;
+  padding: 1rem;
+  font-weight: 300;
+  background-color: rgba(255, 255, 255, .2) !important;
+  border-radius: 1.2rem;
+  color: rgba(255, 255, 255, .8)
+}
+#ti-seatHolder .ti-xcontainer {
+  padding: .5rem;
+}
+
+#ti-catSel .ti-citem img {
+  border-radius: 1.2rem;
+  margin-bottom: 1rem
+}
+#ti-catSel .ti-citem:hover img {
+  border-radius: 1.2rem;
+}
+
+#ti-xvouchstat {
+  background: rgba(0,0,0,.4);
+  padding: .2rem .5rem;
+  border-radius: 1.2rem 1.2rem 0 0;
+  margin: 0 1.6rem
+}
+.ti-error {
+  color: red;
+}
+.ti-success {
+  color: lime;
+}
+
+@media all and (min-width: 880px) {
+  #ti-catSel .ti-citem {
+    border-radius: 1.2rem;
+    margin: calc(.75rem + 1.5%);
+    border: .2rem transparent solid; 
+  }
+  #ti-catSel.ti-contrive .ti-citem:not(:hover) {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, .2);
+    opacity: .4
+  }
+}

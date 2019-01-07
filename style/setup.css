@@ -1,0 +1,124 @@
+@font-face {
+    font-family: Fira-Code;
+    src: url(./firacode.ttf);
+}
+
+body {
+    background: var(--ti-accent);
+    color: white;
+    font-family: 'IRANSans';
+    direction: rtl;
+    font-size: 1.6rem;
+}
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1, h2 , h3 {
+    text-align: center;
+    opacity: .87;
+    font-weight: 200;
+    border-bottom: .2rem solid rgba(255,255,255,.2);
+}
+form > div {
+    margin: calc(1% + .5rem);
+    background-color: rgba(255,255,255,.7);
+    box-shadow: 0rem .1rem .1rem 0 rgba(0,0,0,0.2);
+    border-radius: .4rem;
+    padding: 1.5rem;
+    max-width: 60.0rem;
+    width: calc(98% - 1.0rem);
+    box-sizing: border-box;
+    color: var(--ti-dead);
+}
+#settings-security {
+    display: flex;
+    justify-content: space-evenly;
+}
+#settings-custom div {
+    display: flex;
+    justify-content: space-evenly;
+}
+#appid {
+    --width: 15.0rem;
+}
+#apptoken {
+    --width: 30.0rem;
+}
+input.ti-btn {
+    border: .4rem solid white;
+    opacity: .6;
+    margin: 1.5rem;
+    height: unset;
+    background-color: transparent !important;
+    background-image: radial-gradient(white 50%, transparent 50%) !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;;
+    background-size: 0 0 !important;
+    transition: .3s ease-out !important;
+    font-size: 2.0rem !important;
+    font-weight: 400;
+    width: 18.0rem;
+}
+input.ti-btn:hover {
+    opacity: .9;
+}
+input.ti-btn:active {
+    opacity: 1;
+    background-size: 40.0rem 40.0rem !important;
+    color: black;
+}
+br {
+    margin-bottom: 1.5rem;
+}
+.duo-right {
+    float: right;
+    clear: right;
+}
+.duo-left {
+    float: left;
+    margin-left: 1.0rem;
+    --width: 30.0rem !important;
+}
+#main-form[tview="normal"] .main-settings:not(#settings-custom) {
+    display: none;
+}
+#main-form[tview="single"] .main-settings:not(#settings-single) {
+    display: none;
+}
+input {
+    direction: ltr;
+}
+#output, #outputs  {
+    text-align: center;
+    font-family: Fira-Code, Consolas;
+    font-size: 2.0rem;
+    color: var(--ti-accent);
+    padding: 3.0rem;
+    direction: ltr;
+    user-select: text !important;
+    -o-user-select: text !important;
+    -ms-user-select: text !important;
+    -moz-user-select: text !important;
+    -webkit-user-select: text !important;
+}
+#useroverride:not([check="true"]) ~ .tiset-user,
+#useroverride:not([check="true"]) ~ .tiset-user + span,
+#useroverride:not([check="true"]) ~ .tiset-user + span + input {
+    display: none;
+}
+span > span {
+    display: block;
+    font-size: 1.4rem;
+    opacity: .68;
+}
+.text-detail{
+	float:right;
+}
+.text-title1{
+	color:#ffa;
+}
+.text-title2{
+	color:#22b;
+}

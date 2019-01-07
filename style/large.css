@@ -1,0 +1,382 @@
+@media all and (min-width: 880px) {
+    #ti-listHolder {
+        padding: 2.0rem;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 6.0rem;
+        justify-content: start;
+        align-content: flex-start;
+    }
+
+    #ti-listHolder .ti-xitem > * {
+        display: block;
+        float: right;
+        clear: right;
+    }
+
+    #ti-listHolder .ti-xitem {
+        height: unset;
+        padding: .5rem;
+        position: relative;
+    }
+
+    #ti-listHolder .ti-witem {
+        margin: .24rem;
+    }
+
+    #ti-listHolder .ti-xitem > span {
+        height: 12.0rem;
+        width: 12.0rem;
+    }
+
+    #ti-listHolder .ti-xitem > .ti-name,
+    #ti-listHolder .ti-xitem > .ti-nametitle {
+        padding-right: .3rem;
+        width: 12.0rem;
+        box-sizing: border-box;
+        margin-top: .4rem;
+    }
+    #ti-listHolder .ti-xitem > .ti-nametitle {
+        width: 10.5rem;
+    }
+
+    #ti-listHolder .ti-xitem:hover > .ti-name {
+        margin-top: -11.5rem;
+        transition: .5s var(--ti-normbaz);
+        margin-bottom: -100%;
+        color: black;
+    }
+
+    @media all and (min-width: 916px) {
+        #ti-listHolder .ti-witem {
+            margin: .4rem;
+        }
+    
+        #ti-listHolder .ti-xitem > span {
+            height: 15.0rem;
+            width: 15.0rem;
+        }
+
+        #ti-listHolder .ti-xitem > .ti-name {
+            width: 15.0rem;
+        }
+        #ti-listHolder .ti-xitem > .ti-nametitle {
+            width: 13.5rem;
+        }
+    }
+
+    #ti-listHolder .ti-xitem > div.ti-nametitle {
+        line-height: 1.9rem;
+        margin-top: .7rem;
+    }
+
+    #ti-listHolder .ti-witem .ti-name {
+        position: absolute;
+        margin: 0 0 !important;
+        padding: 5px 0;
+        height: 0;
+    }
+
+    #ti-listHolder .ti-witem .ti-name > span {
+        line-height: 1.5rem;
+        margin: .5rem 0;
+        opacity: 0;
+        transition: inherit;
+        height: 0;
+    }
+
+    #ti-listHolder .ti-xitem:hover .ti-name > span {
+        opacity: 1;
+        height: unset;
+    }
+
+    #ti-listHolder .ti-xitem > span {
+        transition: .7s var(--ti-normbaz);
+    }
+
+    #ti-listHolder .ti-xitem:hover > span {
+        opacity: .07;
+        filter: blur(.3rem);
+    }
+
+    /*#ti-listHeader {
+        right: 0rem;
+        border-bottom-right-radius: 0rem;
+        min-width: calc(100% - 30rem);
+    }*/
+
+    #ti-catSel > div > div {
+        display: flex;
+        vertical-align: middle;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+        height: 100%;
+    }
+
+    #ti-catSel .ti-citem {
+        --bgsize: calc(100vh + 100vw);
+        overflow: visible;
+        border-radius: .4rem;
+        vertical-align: middle;
+        margin: .5rem;
+        transition: .4s var(--ti-normbaz);
+        cursor: pointer;
+        flex: 1 1 auto;
+        /*background: radial-gradient(rgba(255,255,255,.1) 50%, transparent 50%) no-repeat;
+        background-size: var(--bgsize) var(--bgsize);
+        background-position: 50% 50%;*/
+        background: rgba(255,255,255,.1);
+        text-align: center;
+        padding: 1.0rem 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: unset;
+        width: unset;
+        min-width: 10%;
+    }
+
+    #ti-catSel .ti-citem:hover {
+        background: rgba(0,0,0,.5);
+    }
+
+    #ti-catSel .ti-citem > img {
+        height: 6.4rem;
+        width: 6.4rem;
+        background: transparent;
+        border-radius: 0;
+        padding: 0;
+        margin: .5rem;
+    }
+
+    #ti-catSel .ti-citem:hover > img {
+        padding: 0;
+        border-radius: 0;
+        margin: .5rem;
+        background: transparent;
+    }
+
+    #ti-catSel.ti-contrive .ti-citem:not(:hover) > img {
+        padding: 0;
+        /*border-radius: 100%;*/
+        margin: .5rem;
+        background: transparent;
+        transform: translateY(+.9rem);
+    }
+
+    #ti-catSel.ti-contrive .ti-citem:not(:hover) {
+        filter: /*blur(1.2rem)*/ brightness(0);
+    }
+
+    #ti-seatHolder .ti-btn.ti-dead {
+        display: none;
+    }
+
+    #ti-catSel .ti-citem > div {
+        font-size: 1.6rem;
+        opacity: .70;
+    }
+
+    #ti-catSel .ti-citem:hover > div {
+        opacity: 1;
+    }
+
+    #ti-cardWrapper {
+        --width: calc(50vw - 4.0rem);
+        top: 0;
+        right: calc(-1 * var(--stage) * 50vw);
+        height: 100vh;
+        flex-direction: row;
+    }
+
+    #ti-cardWrapper > div {
+        width: 50vw;
+        flex-basis: 50vw;
+    }
+
+    #ti-cardWrapper > div > div {
+        width: 50vw;
+    }
+
+    #ti-cardWrapper .flex-tr#ti-bannerHolder {
+        height: 100vh;
+        width: 50vw;
+    }
+
+    #ti-cardWrapper .flex-tr#ti-bannerHolder > div {
+        display: flex;
+    }
+
+    #ti-cardWrapper .flex-tr#ti-bannerHolder div {
+        width: auto;
+        margin-left: 0;
+        padding: .5rem;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #ti-cardWrapper .flex-tr#ti-bannerHolder img:not([src=""]) {
+        display: initial;
+        max-width: calc(var(--width) - 1.0rem);
+        margin: auto;
+        max-height: 100%;
+        box-sizing: border-box;
+    }
+
+    #ti-eventHolder .ti-seperator:not(:empty) {
+        padding-top: 1.0rem;
+        padding-bottom: 1.0rem;
+    }
+
+    #ti-eventHolder .ti-seperator::before, #ti-eventHolder .ti-seperator::after {
+        font-size: 4.8rem;
+        font-family: Georgia;
+        line-height: 1.8rem;
+        opacity: .2;
+        position: absolute;
+    }
+
+    #ti-eventHolder .ti-seperator:not(:empty)::before {
+        content: '”';
+        top: 1.5rem;
+        vertical-align: top;
+        right: 0rem;
+    }
+
+    /*#ti-eventHolder .ti-seperator:not(:empty)::after {
+        content: '“';
+        bottom: 15rem;
+        vertical-align: bottom;
+        left: 0rem;
+    }*/
+
+    #ti-cardWrapper > div > div > div {
+        max-height: 50.0rem;
+        max-width: 50.0rem;
+        min-width: unset;
+        width: var(--width);
+    }
+
+    #ti-loader > span {
+        vertical-align: middle;
+    }
+
+    #ti-cardWrapper > div > div {
+        padding: 2.0rem 1.5rem;
+    }
+
+    #ti-cardWrapper {
+        display: flex;
+    }
+
+    #ti-cardWrapper #ti-seatHolder .ti-title, #ti-cardWrapper #ti-seatHolder .ti-prefix {
+        display: none;
+    }
+    
+    #ti-pickHolder .ti-witem.selected > .ti-xitem > span {
+        background: darkred;
+        width: 1.0rem;
+    }
+
+    #ti-pickHolder .ti-witem.selected > .ti-xitem > .ti-name {
+        color: darkred;
+    }
+
+    #ti-cardWrapper .ti-container {
+        padding: 1.0rem;
+        border-right: .2rem solid var(--ti-accent);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    #ti-pickHolder .ti-xitem {
+        margin-left: 1.0rem;
+    }
+
+    #ti-cardWrapper .ti-xcontainer i.material-icons {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+        vertical-align: bottom;
+        margin-left: .5rem;
+        margin-top: .5rem;
+        margin-right: .7rem;
+    }
+
+    #ti-cardWrapper .ti-xcontainer span {
+        font-size: 1.4rem;
+    }
+
+    #ti-cardWrapper .flex-tr:not(.fulfilled) > div > div > * {
+        display: none !important;
+    }
+
+    #ti-cardWrapper .flex-tr:not(.fulfilled) > div > div::before {
+        position: absolute;
+        border: dashed rgba(0,0,0,.5) .2rem;
+        padding: 2.0rem 2.0rem;
+        border-radius: .8rem;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%,-50%);
+        opacity: .6;
+    }
+
+    #ti-seatHolder:not(.fulfilled) > div > div::before {
+        content: "لطفا سانس را انتخاب کنید";
+    }
+
+    #ti-finalHolder:not(.fulfilled) > div > div::before {
+        content: "لطفا صندلی انتخاب کنید";
+    }
+
+    #ti-aftermathHolder:not(.fulfilled) > div > div::before {
+        content: "ابتدا اطلاعات را تکمیل و بلیط را رزرو کنید";
+    }
+
+    #ti-aftermathHolder .ti-title, #ti-aftermathHolder .ti-prefix {
+        visibility: hidden;
+    } 
+
+    #ti-cardWrapper > div > div > div:not(:hover) {
+        background: rgba(255,255,255,.8);
+    }
+
+    #ti-cardWrapper:not(.chaotic) > div.ti-rightside, 
+    #ti-cardWrapper.chaotic > div.chaotic-right {
+        flex-direction: row-reverse;
+    }
+
+    #ti-cardWrapper:not(.chaotic) > div.ti-leftside, 
+    #ti-cardWrapper.chaotic > div.chaotic-left {
+        flex-direction: row;
+    }
+
+    #ti-cardWrapper:not(.chaotic) > div.ti-rightside > div > div,
+    #ti-cardWrapper.chaotic > div.chaotic-right > div > div {
+        margin-left: 0;
+    }
+
+    #ti-cardWrapper:not(.chaotic) > div.ti-leftside > div > div,
+    #ti-cardWrapper.chaotic > div.chaotic-left > div > div {
+        margin-right: 0;
+    }
+
+    #ti-cardWrapper > div.ti-centrespan {
+        justify-content: center;
+    }
+    #ti-cardWrapper > div.ti-centrespan > div {
+        width: 100vw;
+    }
+    #ti-cardWrapper > #ti-receiptHolder > .ti-seperator {
+        height: unset;
+        margin: 10px;
+    }
+    .chaotic #ti-pickHolder .ti-btn.ti-dead,
+    .chaotic #ti-eventHolder .ti-btn:not(.ti-dead) {
+        display: none;
+    }
+}

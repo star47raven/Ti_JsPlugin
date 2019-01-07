@@ -1,0 +1,24 @@
+{
+    "remotePath": "./wp-content/plugins/tiwalljs/",
+    "host": "164.215.132.3",
+    "username": "wp-demokar",
+    "password": "pJ1xa51O#uQgjblv",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": true,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "uploadOnSave": false,
+        "extensionsToInclude": [],
+        "path": ""
+    }
+}

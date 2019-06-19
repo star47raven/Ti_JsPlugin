@@ -1,0 +1,1 @@
+Compress-Archive -DestinationPath .\ZirbanaPlugin.zip -LiteralPath "D:\Repo\Tiwall\Ti_WP\tiwallJS.php","D:\Repo\Tiwall\Ti_WP\.setup","D:\Repo\Tiwall\Ti_WP\engine","D:\Repo\Tiwall\Ti_WP\img","D:\Repo\Tiwall\Ti_WP\inc","D:\Repo\Tiwall\Ti_WP\struct","D:\Repo\Tiwall\Ti_WP\style","D:\Repo\Tiwall\Ti_WP\themes" -CompressionLevel NoCompression -Force

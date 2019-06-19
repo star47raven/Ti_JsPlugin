@@ -63,9 +63,7 @@
 
         <div id="ti-listHolder"></div>
         <div id="ti-listHeader" style="top: 100%">
-		  <?php if ($_GET['categories~_filter'] == ""){?>
-              <i class="material-icons" style="margin-top: -4px; margin-left: 7px">expand_less</i>
-		<?php } ?>
+        <i id="ti-listHeaderArrow" class="material-icons" style="margin-top: -4px; margin-left: 7px">expand_less</i>
          
             <span></span>
         </div>
@@ -91,6 +89,9 @@
             <?php if (empty($_GET['cypherkey']) && $uconf->wordpress->forcelogin) { ?>
                 $('#ti-eventHolder .ti-btn:not(.ti-dead)').addClass('ti-warn').text("شما باید لاگین باشید تا بتوانید خرید کنید");
             <?php } ?>
+                if (__config.categories._filter)
+                    $('#ti-listHeaderArrow').addClass('ti-hidden')
+                $('')
                 //__scroll_origin = $('#ti-listHolder');
                 $('#ti-listHolder').on((__config.js.scroll ? 'sync:' : '') + 'scroll', function(eventScr) {
                     if (DEBUG)
@@ -478,7 +479,7 @@
                                     <span id="ti-xreserve"></span>
                                 </div>
                             </div>
-                            <div class="ti-duo">
+                            <!--<div class="ti-duo">
                                 <div class="ti-rightside">
                                     <span>کد رهگیری</span>
                                 </div>
@@ -491,9 +492,9 @@
                                     <span>بهای نهایی</span>
                                 </div>
                                 <div class="ti-leftside">
-                                    <span id="ti-xfinalprice" style="font-size: 20rem"></span>
+                                    <span id="ti-xfinalprice" style="font-size: 2rem"></span>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div style="margin-top: 15px; display: flex; justify-content: space-around; font-size: 36px; color: var(--ti-accent)">
                             <div id="ti-xrtimer" class="ti-error"></div>

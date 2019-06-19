@@ -1,248 +1,252 @@
 #ti-catSel .ti-citem {
-    border-radius: 0;
-    display: flex;
-    width: unset;
-    background: rgba(255,255,255,.1);
-  }
-  #ti-catSel.ti-contrive .ti-citem:not(:hover) {
-    background: rgba(0,0,0,.3);
-  }
-  #ti-catSel.ti-contrive .ti-citem > img {
-    background: transparent !important;
-  }
-  #ti-catSel .ti-citem > img {
-    border-radius: 0;
-    background-color: rgba(255,255,255,.1);
-    display: inline-block;
-    margin: 0;
-    padding: .8rem;
-  }
-  #ti-catSel.ti-contrive .ti-citem:hover > img {
-    height: 4.8rem;
-    width: 4.8rem;
-    padding: .8rem;
-    margin: 0;
-  }
-  #ti-catSel .ti-citem > div {
-    display: inline-block;
-    margin: 0 1.5rem;
-    vertical-align: middle;
-    line-height: 6.4rem;
-    font-size: 1.6rem;
-  }
-  #ti-catSel.ti-contrive .ti-citem:hover > div {
-    margin-right: 3.0rem;
-  }
-  
-  
-  #ti-listHolder .ti-witem {
-    border-radius: 0;
-  }
-  #ti-listHolder .ti-xitem {
-    width: 100%;
-  }
-  #ti-listHolder .ti-xitem > .ti-name > span {
-    min-width: 49%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  #ti-listHolder .ti-xitem > span {
-    border-radius: 0;
-    text-align: center;
-    margin: auto;
-  }
-  #ti-cardWrapper > div > div > div {
-    border-radius: 0;
-    box-shadow: none;
-  }
-  
-  .ti-btn {
-    border-radius: 0;
-    box-shadow: none;
-    border-bottom: .3rem var(--ti-accent) solid;
-    background: transparent;
-    color: var(--ti-accent);
-    height: 3.7rem;
-    transition: .1s ease;
-  }
-  .ti-btn:not(.ti-dead):hover {
-    background-color: var(--ti-accent);
-    color: white;
-  }
-  .ti-btn.ti-dead {
-    background: transparent;
-    color: var(--ti-dead);
-    border-color: var(--ti-dead);
-  }
-  .ti-btn.ti-dead:not(.ti-locked):hover {
-    background: var(--ti-dead);
-    color: white;
-  }
-  .ti-btn.ti-locked {
-    background: none;
-    border-bottom: 3px dotted var(--ti-dead);
-    color: var(--ti-dead)
-  }
-  
-  #ti-listHolder.ti-unfocus, #ti-listHolder.ti-unfocus + #ti-listHeader {
-    filter: none;
-    -webkit-filter: none;
-  }
-  #ti-cardWrapper > div {
-    background: rgba(0,0,0,.89)
-  }
-  
-  #ti-pickHolder .ti-witem {
-    border: none !important;
-    background: rgba(0,0,0,.06);
-    margin: .25rem;
-  }
-  #ti-pickHolder .ti-witem.disabled {
-    background: rgba(0,0,0,.3);
-    opacity: .4;
-  }
-  #ti-pickHolder .ti-witem.selected {
-    background: transparent;
-  }
-  #ti-pickHolder .ti-witem.selected > .ti-xitem > span {
-    background: darkred;
-    height: 50%;
-  }
-  #ti-pickHolder .ti-witem.selected > .ti-xitem > div {
-    padding-right: 1.5rem;
-  }
-  #ti-pickHolder .ti-witem span:first-child {
-    border-radius: 0;
-    margin: 0;
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: .5rem;
-  }
-  .numeric {
+  border-radius: 0;
+  display: flex;
+  width: unset;
+  background: rgba(255,255,255,.1);
+}
+#ti-catSel.ti-contrive .ti-citem:not(:hover) {
+  background: rgba(0,0,0,.3);
+}
+#ti-catSel.ti-contrive .ti-citem > img {
+  background: transparent !important;
+}
+#ti-catSel .ti-citem > img {
+  border-radius: 0;
+  background-color: rgba(255,255,255,.1);
+  display: inline-block;
+  margin: 0;
+  padding: .8rem;
+}
+#ti-catSel.ti-contrive .ti-citem:hover > img {
+  height: 4.8rem;
+  width: 4.8rem;
+  padding: .8rem;
+  margin: 0;
+}
+#ti-catSel .ti-citem > div {
+  display: inline-block;
+  margin: 0 1.5rem;
+  vertical-align: middle;
+  line-height: 6.4rem;
+  font-size: 1.6rem;
+}
+#ti-catSel.ti-contrive .ti-citem:hover > div {
+  margin-right: 3.0rem;
+}
+
+
+#ti-listHolder .ti-witem {
+  border-radius: 0;
+}
+#ti-listHolder .ti-xitem {
+  width: 100%;
+}
+#ti-listHolder .ti-xitem > .ti-name > span {
+  min-width: 49%;
+  margin: 0;
+  box-sizing: border-box;
+}
+#ti-listHolder .ti-xitem > span {
+  border-radius: 0;
+  text-align: center;
+  margin: auto;
+}
+#ti-cardWrapper > div > div > div {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ti-btn {
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: .3rem var(--ti-accent) solid;
+  background: transparent;
+  color: var(--ti-accent);
+  height: 3.7rem;
+  transition: .1s ease;
+}
+.ti-btn:not(.ti-dead):hover {
+  background-color: var(--ti-accent);
+  color: white;
+}
+.ti-btn.ti-dead {
+  background: transparent;
+  color: var(--ti-dead);
+  border-color: var(--ti-dead);
+}
+.ti-btn.ti-dead:not(.ti-locked):hover {
+  background: var(--ti-dead);
+  color: white;
+}
+.ti-btn.ti-locked {
+  background: none;
+  border-bottom: 3px dotted var(--ti-dead);
+  color: var(--ti-dead)
+}
+
+#ti-listHolder.ti-unfocus, #ti-listHolder.ti-unfocus + #ti-listHeader {
+  filter: none;
+  -webkit-filter: none;
+}
+#ti-cardWrapper > div {
+  background: rgba(0,0,0,.89)
+}
+
+#ti-pickHolder .ti-witem {
+  border: none !important;
+  background: rgba(0,0,0,.06);
+  margin: .25rem;
+}
+#ti-pickHolder .ti-witem.disabled {
+  background: rgba(0,0,0,.3);
+  opacity: .4;
+}
+#ti-pickHolder .ti-witem.selected {
+  background: transparent;
+}
+#ti-pickHolder .ti-witem.selected > .ti-xitem > span {
+  background: darkred;
+  height: 50%;
+}
+#ti-pickHolder .ti-witem.selected > .ti-xitem > div {
+  padding-right: 1.5rem;
+}
+#ti-pickHolder .ti-witem span:first-child {
+  border-radius: 0;
+  margin: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: .5rem;
+}
+.numeric {
+  display: flex;
+  justify-content: center;
+}
+.exotic-input {
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  background: rgba(0,0,0,.07);
+}
+.exotic-input:hover {
+  background: rgba(0,0,0,0.2);
+}
+.exotic-input.textbox {
+  border-bottom: 2px solid transparent;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--ti-blind);
+  padding: .5rem;
+}
+.exotic-input.textbox:focus {
+  border-color: var(--ti-accent);
+  background: transparent;
+  color: black;
+  padding: .5rem 0;
+}
+.exotic-input.checkbox {
+  border-radius: 100%;
+}
+.exotic-input.checkbox[check="true"] {
+  border-radius: 0;
+  background: var(--ti-accent);
+}
+#ti-finalHolder #ti-xusecup::after {
+  margin: .3rem;
+}
+.zb-seatmap .chair, .zb-seatmap .locked-chair {
+  border-radius: 0 !important;
+  font-weight: 400;
+}
+.zb-seatmap .scene {
+  border-radius: 0;
+  border: .1rem dotted rgba(0,0,0,.3);
+  background: rgba(0,0,0,.05);
+  color: rgba(0,0,0,.6);
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+#ti-xvouchstat {
+  border-bottom: .2rem solid transparent;
+}
+#ti-xvouchstat.ti-error {
+  color: darkred;
+  border-color: darkred;
+}
+#ti-cardWrapper > div > div {
+  padding: 0;
+}
+#ti-cardWrapper > div > div > div {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-width: unset;
+  min-height: unset;
+  max-width: unset;
+  max-height: unset;
+}
+#ti-loader > span {
+  vertical-align: middle;
+}
+.ti-btn:not(.ti-dead) {
+  background: var(--ti-blind);
+  color: white;
+}
+@media all and (min-width: 880px) {
+  #ti-catSel > div {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
-  .exotic-input {
+  #ti-catSel > div > div {
+    justify-content: center;
+    flex-grow: 0;
+    width: unset;
+    height: unset;
+  }
+  #ti-catSel .ti-citem {
     border-radius: 0;
-    border: 0;
-    box-shadow: none;
-    background: rgba(0,0,0,.07);
+    background-color: rgba(255,255,255,.0);
+    margin: 1rem;
+    padding: 1rem 1rem;
+    min-width: 20%;
+    max-width: 20rem;
+    min-height: 15rem;
+    max-height: 20rem;
   }
-  .exotic-input:hover {
-    background: rgba(0,0,0,0.2);
-  }
-  .exotic-input.textbox {
-    border-bottom: 2px solid transparent;
-    font-weight: 400;
-    font-size: 1.2rem;
-    color: var(--ti-blind);
-    padding: .5rem;
-  }
-  .exotic-input.textbox:focus {
-    border-color: var(--ti-accent);
+  #ti-catSel .ti-citem img {
     background: transparent;
-    color: black;
-    padding: .5rem 0;
   }
-  .exotic-input.checkbox {
-    border-radius: 100%;
+  #ti-catSel .ti-citem img {
+    background: transparent;
   }
-  .exotic-input.checkbox[check="true"] {
-    border-radius: 0;
-    background: var(--ti-accent);
+  #ti-catSel .ti-citem:hover {
+    background: rgba(0,0,0,.8);
+    transform: scale(1.15);
   }
-  #ti-finalHolder #ti-xusecup::after {
-    margin: .3rem;
+  #ti-listHeader {
+    margin-top: 1.0rem;
+    width: unset;
   }
-  .zb-seatmap .chair, .zb-seatmap .locked-chair {
-    border-radius: 0 !important;
-    font-weight: 400;
+  #ti-listHolder .ti-xitem {
+    text-align: center;
   }
-  .zb-seatmap .scene {
-    border-radius: 0;
-    border: .1rem dotted rgba(0,0,0,.3);
-    background: rgba(0,0,0,.05);
-    color: rgba(0,0,0,.6);
-    font-weight: 400;
-    font-size: 1.4rem;
+  #ti-catSel.ti-contrive .ti-citem:hover > div {
+    margin-right: 1.5rem;
   }
-  #ti-xvouchstat {
-    border-bottom: .2rem solid transparent;
-  }
-  #ti-xvouchstat.ti-error {
-    color: darkred;
-    border-color: darkred;
-  }
-  #ti-cardWrapper > div > div {
-    padding: 0;
-  }
-  #ti-cardWrapper > div > div > div {
+  #ti-catSel.ti-contrive .ti-citem:hover > img {
+    height: 6.4rem;
+    width: 6.4rem;
+    padding: .8rem;
     margin: 0;
-    width: 100%;
-    height: 100%;
-    min-width: unset;
-    min-height: unset;
-    max-width: unset;
-    max-height: unset;
   }
-  #ti-loader > span {
-    vertical-align: middle;
+  #ti-catSel.ti-contrive .ti-citem:not(:hover) {
+    background: rgba(0,0,0,0);
   }
-  @media all and (min-width: 880px) {
-    #ti-catSel > div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #ti-catSel > div > div {
-      justify-content: center;
-      flex-grow: 0;
-      width: unset;
-      height: unset;
-    }
-    #ti-catSel .ti-citem {
-      border-radius: 0;
-      background-color: rgba(255,255,255,.0);
-      margin: 1rem;
-      padding: 1rem 1rem;
-      min-width: 20%;
-      max-width: 20rem;
-      min-height: 15rem;
-      max-height: 20rem;
-    }
-    #ti-catSel .ti-citem img {
-      background: transparent;
-    }
-    #ti-catSel .ti-citem img {
-      background: transparent;
-    }
-    #ti-catSel .ti-citem:hover {
-      background: rgba(0,0,0,.8);
-      transform: scale(1.15);
-    }
-    #ti-listHeader {
-      margin-top: 1.0rem;
-      width: unset;
-    }
-    #ti-listHolder .ti-xitem {
-      text-align: center;
-    }
-    #ti-catSel.ti-contrive .ti-citem:hover > div {
-      margin-right: 1.5rem;
-    }
-    #ti-catSel.ti-contrive .ti-citem:hover > img {
-      height: 6.4rem;
-      width: 6.4rem;
-      padding: .8rem;
-      margin: 0;
-    }
-    #ti-catSel.ti-contrive .ti-citem:not(:hover) {
-      background: rgba(0,0,0,0);
-    }
-    #ti-cardWrapper > div.ti-rightside > div {
-      padding-left: .25rem;
-    }
-    #ti-cardWrapper > div.ti-leftside > div {
-      padding-right: .25rem;
-    }
+  #ti-cardWrapper > div.ti-rightside > div {
+    padding-left: .25rem;
   }
+  #ti-cardWrapper > div.ti-leftside > div {
+    padding-right: .25rem;
+  }
+}

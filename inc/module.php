@@ -239,10 +239,20 @@
                 $('#ti-aftermathHolder #ti-bxpay').click(() => causeAftermathPayment());
             <?php } else { ?>
                 
-                $('#ti-receiptHolder .ti-btn:not(.ti-dead)').click(function (event) {
+                $('#ti-receiptHolder #receiptGetBtn').click(function (event) {
                     var link = document.createElement('a');
                     link.setAttribute('href', callData.data.attachment_url);
-                    link.setAttribute('download', 'tiwall${callData.data.trace_number}.pdf');
+                    link.setAttribute('download', 'tiwall_${callData.data.trace_number}.pdf');
+                    link.setAttribute('target', '_blank');
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+                $('#ti-receiptHolder #fileDownloadBtn').click(function (event) {
+                    var link = document.createElement('a');
+                    link.setAttribute('href', callData.data.attachment_url);
+                    link.setAttribute('download', 'tiwall_${callData.data.trace_number}.pdf');
                     link.setAttribute('target', '_blank');
                     link.style.display = 'none';
                     document.body.appendChild(link);
@@ -255,11 +265,15 @@
                     $('#ti-receiptHolder .ti-title').text(callData.data.sale.title);
                     $('#ti-receiptHolder .ti-suffix').text(callData.data.item_behavior == "event" ? callData.data.venue.title : "");
                     switch (callData.data.sale.deliver_type) {
+                        case "receipt":
+                            if (callData.data.attachment_url)
+                                $('#ti-receiptHolder #fileDownloadBtn').removeClass('ti-hidden');
+                            break;
                         case "receipt_station":
                             $('#ti-receiptHolder .ti-seperator img').removeClass('ti-hidden').attr('src', callData.data.attachment_url);
                             break;
                         case "ticket":
-                            $('#ti-receiptHolder .ti-btnwrap ti-btn').removeClass('ti-hidden');
+                            $('#ti-receiptHolder #receiptGetBtn').removeClass('ti-hidden');
                             break;
                     }
                     $('#ti-receiptHolder .ti-rcinst').text(callData.data.instance.title);
@@ -306,7 +320,8 @@
                         </div>
 
                         <span class="ti-btnwrap">
-                            <div class="ti-btn ti-hidden">دانلود بلیت</div>
+                            <div id="receiptGetBtn" class="ti-btn ti-hidden">دریافت بلیت</div>
+                            <div id="fileDownloadBtn" class="ti-btn ti-hidden">دانلود فایل</div>
                         </span>
                     </div>
                 </div>

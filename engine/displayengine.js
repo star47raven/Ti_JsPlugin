@@ -51,7 +51,8 @@ function initEventPage(i, isRef) {
         $('#ti-cardWrapper').addClass('chaotic');
         getTiEventList(null, { parent_id: __active_event.id }, xdat => {
             $('#ti-pickHolder .ti-xcontainer').empty();
-            xdat.data.forEach(elem => addChild(elem));
+            for (elem in xdat.data)
+                addChild(xdat.data[elem]);
         });
         $('#ti-parentCall').addClass('ti-hidden');
     }
@@ -105,6 +106,13 @@ function initEventPage(i, isRef) {
 
     $('#ti-eventHolder .ti-seperator').text(__active_event.short_desc || "");
     $('#ti-eventHolder .ti-xplate').text(__active_event.promo_desc || "");
+
+    if (__active_event.sale) {
+        $('#ti-eventHolder .ti-btn:not(.ti-dead)').removeClass('ti-hidden');
+    }
+    else {
+        $('#ti-eventHolder .ti-btn:not(.ti-dead)').addClass('ti-hidden');
+    }
 }
 
 let __current_instance = null;
@@ -112,7 +120,7 @@ let __instances = null;
 function addChild(datC) {
     let datO = datC;
     lockLoader(true);
-    var ops = { id: datC.id || "", name: datC.title, info: '' };
+    var ops = { id: datC.id || "", name: datC.title, info: '', discs: '' };
     getEventPickHtml(ops, xhtml => {
         $('#ti-pickHolder .ti-xcontainer').append(xhtml);
         $('#ti-pickHolder .ti-witem:last-child').click(event => {
@@ -125,8 +133,8 @@ function addPick(datZ) {
     lockLoader(true);
     var ops = { id: datZ.id || "", name: datZ.title || "خرید", info: datZ.remained_text || "" };
     ops.discs = "";
-    ops.discs += datZ.general_discount ? '<div class="ti-disc-gen"></div>' : '';
-    ops.discs += datZ.group_discount ? '<div class="ti-disc-grp"></div>' : '';
+    ops.discs += (datZ.general_discount ? '<div class="ti-disc-gen"></div>' : '') || '';
+    ops.discs += (datZ.group_discount ? '<div class="ti-disc-grp"></div>' : '') || '';
     getEventPickHtml(ops, function (xhtml) {
         $('#ti-pickHolder .ti-xcontainer').append(xhtml);
         if (!datZ.remained) $('#ti-pickHolder .ti-witem:last-child').addClass('disabled');
@@ -145,6 +153,7 @@ function addPick(datZ) {
                 $('#ti-seatHolder .ti-xcontainer').empty();
                 lockLoader(true);
                 __current_instance = $(this).attr('itemid');
+                $('#ti-seatHolder .ti-seperator').empty();
                 getSeatmap(__active_event.urn, { 'showtime_id': $(this).attr('itemid') },
                     function (jsdat) {
                         //if (DEBUG)
@@ -154,7 +163,7 @@ function addPick(datZ) {
                         //    jsdat.data.html = jsdat.data.html.replace('https://store.zirbana.com/resource/js/hallRenderer-v2.js', '/engine/hallRenderer-v2.js');
                         $('#ti-seatHolder .ti-xframe').html(jsdat.data.html);
                         $('#ti-hallstyle').html(jsdat.data.css);
-                        $('#ti-seatHolder .ti-seperator').empty();
+                        
                         if (DEBUG) 
                             console.warn(jsdat.data.sections.length + " sections");
                         for (var seat in jsdat.data.sections) {
@@ -172,6 +181,7 @@ function addPick(datZ) {
             });
         } else {
             $('#ti-pickHolder .ti-witem:last-child').click(function () {
+                $('#ti-seatHolder .ti-seperator').empty();
                 $('#ti-pickHolder .ti-witem').removeClass('selected');
                 $(this).addClass('selected');
                 __current_instance = $(this).attr('itemid');

@@ -1,22 +1,25 @@
+<?php
+    define('ROOTDIR', "");
+    require_once("php/paths.php");
+    require_once("php/tokener.php");
+    $cfg = file_get_contents($config_path_module);
+    $uconf = json_decode($cfg);
+    /*global $current_user;
+    get_currentuserinfo();*/
+    /*if (!(!isset($_GET['user_id']) && $uconf->wordpress->forcelogin)) {*/
+?>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/core.css" />
     <link title="largeCSS" rel="stylesheet" href="../style/large.css" />
-    <link title="themeCSS" rel="stylesheet" href="../themes/tile-material.css" />
+<?php if ($uconf->js->theme) { ?>
+    <link rel="stylesheet" href="../themes/<?php echo $uconf->js->theme ?>.css" />
+<?php } ?>
     <link type="font/woff2" href="https://fonts.gstatic.com/s/materialicons/v34/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2" as="font" rel="preload" />
 </head>
 <body>
-    <?php
-        define('ROOTDIR', "");
-        require_once("php/paths.php");
-        require_once("php/tokener.php");
-        $cfg = file_get_contents($config_path_module);
-        $uconf = json_decode($cfg);
-        /*global $current_user;
-        get_currentuserinfo();*/
-        /*if (!(!isset($_GET['user_id']) && $uconf->wordpress->forcelogin)) {*/
-    ?>
+    
     <div id="ti-mastercontain">
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
         <style id="ti-hallstyle">
@@ -91,7 +94,6 @@
             <?php } ?>
                 if (__config.categories._filter)
                     $('#ti-listHeaderArrow').addClass('ti-hidden')
-                $('')
                 //__scroll_origin = $('#ti-listHolder');
                 $('#ti-listHolder').on((__config.js.scroll ? 'sync:' : '') + 'scroll', function(eventScr) {
                     if (DEBUG)
@@ -214,6 +216,7 @@
                 });
                 $('#ti-seatHolder .ti-btn:not(.ti-dead)').click(function(event) {
                     $('#ti-finalHolder #ti-xseats').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
+                    $('#ti-aftermathHolder #ti-xfinalseats').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
                     $('#ti-finalHolder #ti-xcost').text(toLocalisedNumbers(seperateDigits(__finalSeatData.total_price, ',') + " تومان"));
                     switchToFinal();
                 });
@@ -252,7 +255,7 @@
                 $('#ti-receiptHolder #fileDownloadBtn').click(function (event) {
                     var link = document.createElement('a');
                     link.setAttribute('href', callData.data.attachment_url);
-                    link.setAttribute('download', 'tiwall_${callData.data.trace_number}.pdf');
+                    //link.setAttribute('download');
                     link.setAttribute('target', '_blank');
                     link.style.display = 'none';
                     document.body.appendChild(link);
@@ -486,7 +489,7 @@
                         <div class="ti-title"></div>
                         <div class="ti-seperator"></div>
                         <div class="ti-xcontainer">
-                            <div class="ti-duo">
+                            <!--<div class="ti-duo">
                                 <div class="ti-rightside">
                                     <span>کد رزرو</span>
                                 </div>
@@ -494,12 +497,20 @@
                                     <span id="ti-xreserve"></span>
                                 </div>
                             </div>
-                            <!--<div class="ti-duo">
+                            <div class="ti-duo">
                                 <div class="ti-rightside">
                                     <span>کد رهگیری</span>
                                 </div>
                                 <div class="ti-leftside">
                                     <span id="ti-xtrace"></span>
+                                </div>
+                            </div>-->
+                            <div class="ti-duo">
+                                <div class="ti-rightside">
+                                    <span>صندلی/تعداد</span>
+                                </div>
+                                <div class="ti-leftside">
+                                    <span id="ti-xfinalchairs" style="font-size: 2rem"></span>
                                 </div>
                             </div>
                             <div class="ti-duo">
@@ -509,7 +520,7 @@
                                 <div class="ti-leftside">
                                     <span id="ti-xfinalprice" style="font-size: 2rem"></span>
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
                         <div style="margin-top: 15px; display: flex; justify-content: space-around; font-size: 36px; color: var(--ti-accent)">
                             <div id="ti-xrtimer" class="ti-error"></div>

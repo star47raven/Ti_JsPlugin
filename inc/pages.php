@@ -10,16 +10,22 @@ function plugin_fineurl($url) {
 	return Tiwall_URL . $url;
 }
 
-function load($atts){
+function load_unhinted() {
+	load(array());
+}
+
+function load($atts) {
 	$cat = isset($atts['cat']) && $atts['cat'] != '' ? 'categories~_filter=' . $atts['cat'] . '&' : '';
 	$placeid = isset($atts['venue_id']) && $atts['venue_id'] != '' ? 'list~venue=' . $atts['venue_id'] : ''; 
-	$placeid = isset($atts['id']) && $atts['id'] != '' ? 'list~id=' . $atts['id'] : ''; 
+	$placeid = isset($atts['page_id']) && $atts['page_id'] != '' ? 'list~page_id=' . $atts['page_id'] : ''; 
 	 global $current_user; get_currentuserinfo();
 	$user_info='user_login='. $current_user->user_login.'&user_email='.$current_user->user_email.'&user_firstname='.$current_user->user_firstname.'&user_lastname='.$current_user->user_firstname.'&display_name='.$current_user->display_name.'&user_id='.$current_user->ID.'&user_level='.$current_user->user_level;
+	$utility_js = plugin_fineurl('engine/utility.js');
+	$scrollsync_js = plugin_fineurl('engine/scrollsync.js');
 	ob_start(); ?>
 	<script type="text/javascript" src="https://cdn.zirbana.com/js/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="/wp-content/plugins/tiwallJS/engine/utility.js"></script>
-	<script type="text/javascript" src="/wp-content/plugins/tiwallJS/engine/scrollsync.js"></script>
+	<script type="text/javascript" src="<?php echo $utility_js; ?>"></script>
+	<script type="text/javascript" src="<?php echo $scrollsync_js; ?>"></script>
 	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px); margin-top:-30px;"
 	data="<?php echo plugins_url('module.php?'.$cat.$placeid.'&'.$user_info, __FILE__ )?>"> </object>
 	<div style="height: 3px"></div>
@@ -28,10 +34,12 @@ function load($atts){
 <?php 
 function loadsingle($atts){
 	$urn = $atts['urn'];
-		ob_start(); ?>
+	$utility_js = plugin_fineurl('engine/utility.js');
+	$scrollsync_js = plugin_fineurl('engine/scrollsync.js');
+	ob_start(); ?>
 	<script type="text/javascript" src="https://cdn.zirbana.com/js/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="/wp-content/plugins/tiwallJS/engine/utility.js"></script>
-	<script type="text/javascript" src="/wp-content/plugins/tiwallJS/engine/scrollsync.js"></script>
+	<script type="text/javascript" src="<?php echo $utility_js; ?>"></script>
+	<script type="text/javascript" src="<?php echo $scrollsync_js; ?>"></script>
 	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px); margin-top:-30px;"
 	data="<?php echo plugins_url('module.php?view=single&get~urn='.$urn, __FILE__ )?>"> </object>
 	<div style="height: 3px"></div>

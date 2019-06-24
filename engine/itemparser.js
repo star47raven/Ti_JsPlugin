@@ -1,39 +1,26 @@
-var __ticache_html = [];
-function getProxyHtml(target, options, callback, state) {
-    if (__ticache_html[target] === undefined)
-    {
-        $.ajax("struct/" + target + ".html", { 
-            success: function(htmlx) {
-                __ticache_html[target] = htmlx;
-                var newtml = htmlx;
-                for (var key in options)
-                {
-                    newtml = newtml.replace("$" + target + key + "$", options[key]);
-                }
-                callback(newtml, state);
-            }
-        });
-    }
-    else {
-        var newtml = __ticache_html[target];
-        for (var key in options)
-        {
-            newtml = newtml.replace("$" + target + key + "$", options[key]);
-        } 
-        callback(newtml, state);
-    }
+function INJECT(script) {
+    document.write(`<script type="text/javascript" src="${script}"></script>`);
 }
 
+INJECT `./struct.js/cat.js`;
+INJECT `./struct.js/item.js`;
+INJECT `./struct.js/pick.js`;
+
 function getEventItemHtml(itemOptions, callback, state) {
-    getProxyHtml('item', itemOptions, callback, state);
+    var newtml = __comp_item(itemOptions);
+    callback(newtml, state);
 }
 
 function getEventPickHtml(pickOptions, callback, state) {
-    getProxyHtml('pick', pickOptions, callback, state);
+    console.warn(pickOptions);
+
+    var newtml = __comp_pick(pickOptions);
+    callback(newtml, state);
 }
 
 function getCategoryHtml(catOptions, callback, state) {
-    getProxyHtml('cat', catOptions, callback, state);
+    var newtml = __comp_cat(catOptions);
+    callback(newtml, state);
 }
 
 var __ticonfig = null;

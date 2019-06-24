@@ -21,7 +21,8 @@
                     'scroll' => !empty($_POST["js_scroll"]),
                     'loading' => $_POST["js_loading"],
                     'callback' => urlencode($_POST["js_callback"]),
-                    'responsive' => !empty($_POST["js_responsive"])
+                    'responsive' => !empty($_POST["js_responsive"]),
+                    'theme' => $_POST['js_theme']
                 ),
                 'categories' => array(
                     'mode' => isset($_POST["categories_mode"]) ? $_POST["categories_mode"] : null,
@@ -111,8 +112,8 @@
         <div id="ok-msg" style="display: none;padding: 20px;background: rgba(0,0,0,.5);text-align: center;">تغییرات با موفقیت ثبت شدند</div>
         <div id="fail-msg" style="display: none;padding: 20px;background: rgba(255,0,0,.7);text-align: center;">در حین ثبت تغییرات با مشکلی بر خوردیم</div>
         <form id="main-form" method="post">
-            <h1>حالت نمایش</h1>
-            <div>
+            <h1 class="ti-hidden">حالت نمایش</h1>
+            <div class="ti-hidden">
                 <div class="radiogroup">
                     <div>
                         <div id="view_normal" class="exotic-input radiobox">
@@ -151,19 +152,19 @@
                         <span>همه</span>
                     </div>
                 </div>
-                <br />
-                <span class="duo-right">زمینه‌ها</span>
-                <input class="exotic-input textbox duo-left" name="categories.filter" id="catid" type="text" placeholder="Category Keys" value="<?= isset($app_config->categories->_filter) ? $app_config->categories->_filter : "" ?>" />
-                <br />
-                <span class="duo-right">رویداد‌ها</span>
-                <input class="exotic-input textbox duo-left" name="list.ids" id="catid" type="text" placeholder="Page ID/URN(s)" value="<?= isset($app_config->list->ids) ? $app_config->list->ids : "" ?>" />
-                <br />
-                <span class="duo-right">محل/سالن‌ها</span>
-                <input class="exotic-input textbox duo-left" name="list.venue" id="venueid" type="text" placeholder="Venue ID(s)" value="<?= isset($app_config->list->venue) ? $app_config->list->venue : "" ?>" />
-                <br style="margin-bottom: 30px" />
-                <span>شناسه ها را با ویرگول انگلیسی "," از هم جدا کنید.</span>
+                <br class="ti-hidden" />
+                <span class="duo-right ti-hidden">زمینه‌ها</span>
+                <input class="exotic-input textbox duo-left ti-hidden" name="categories.filter" id="catid" type="text" placeholder="Category Keys" value="<?= isset($app_config->categories->_filter) ? $app_config->categories->_filter : "" ?>" />
+                <br class="ti-hidden" />
+                <span class="duo-right ti-hidden">رویداد‌ها</span>
+                <input class="exotic-input textbox duo-left ti-hidden" name="list.ids" id="catid" type="text" placeholder="Page ID/URN(s)" value="<?= isset($app_config->list->ids) ? $app_config->list->ids : "" ?>" />
+                <br class="ti-hidden" />
+                <span class="duo-right ti-hidden">محل/سالن‌ها</span>
+                <input class="exotic-input textbox duo-left ti-hidden" name="list.venue" id="venueid" type="text" placeholder="Venue ID(s)" value="<?= isset($app_config->list->venue) ? $app_config->list->venue : "" ?>" />
+                <br class="ti-hidden" style="margin-bottom: 30px" />
+                <span class="ti-hidden">شناسه ها را با ویرگول انگلیسی "," از هم جدا کنید.</span>
             </div>
-            <div id="settings-single" class="main-settings">
+            <div id="settings-single" class="main-settings ti-hidden">
                 <span class="duo-right">شناسه صفحه</span>
                 <input class="exotic-input textbox duo-left" name="get.urn" id="singleurn" type="text" placeholder="Page URN" value="<?= isset($app_config->get->urn) ? $app_config->get->urn : "" ?>" />
             </div>
@@ -215,6 +216,9 @@
                     <input type="checkbox" name="js.responsive" />
                 </div>
                 <span>حالت ریسپانسیو درونی<span>در صورتی که وبسایت شما ریسپانسیو است این گزینه را خاموش کنید.</span></span>
+                <br/>
+                <span class="duo-right">تم انتخابی</span>
+                <input class="exotic-input textbox duo-left" name="js.theme" id="jstheme" placeholder="Theme CSS Name" value="<?= $app_config->js->theme ?>" />
                 <br/>
                 <span class="duo-right">لودینگ دلخواه</span>
                 <input class="exotic-input textbox duo-left" name="js.loading" id="jsloading" placeholder="GIF/SVG Url" value="<?= $app_config->js->loading ?>" />

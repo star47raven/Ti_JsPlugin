@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+* {
+	outline: none;
+}
+
 body {
 	margin: 0;
 }
@@ -401,9 +405,9 @@ iframe.width-changed {
 }
 
 #ti-cardWrapper .ti-xcontainer p {
-	margin: -.05rem 0;
+	margin: .05rem 0;
 	padding: 0 .1rem;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: 400;
 }
 

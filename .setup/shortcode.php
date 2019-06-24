@@ -69,10 +69,13 @@
                 <span class="duo-right">زمینه‌ها</span>
                 <input class="exotic-input textbox duo-left" name="cat" type="text" placeholder="<?= isset($app_config->categories->_filter) ? $app_config->categories->_filter : '' ?>" />
                 <br />
+                <span class="duo-right">رویداد‌ها</span>
+                <input class="exotic-input textbox duo-left" name="page_id" type="text" placeholder="<?= isset($app_config->list->page_id) ? $app_config->list->page_id : '' ?>" />
+                <br />
                 <span class="duo-right">محل/سالن‌ها</span>
                 <input class="exotic-input textbox duo-left" name="venue_id" type="text" placeholder="<?= isset($app_config->list->venue) ? $app_config->list->venue : '' ?>" />
                 <br style="margin-bottom: 30px" />
-                <span>شناسه سالن‌ها یا زمینه‌ها را با ویرگول انگلیسی "," از هم جدا کنید.</span>
+                <span>شناسه ها را با ویرگول انگلیسی "," از هم جدا کنید.</span>
             </div>
 			<div id="output" class="ti-hidden"></div>
             <h1><div id="scodesingle" class="exotic-input radiobox"><input type="radio" name="single" /></div><span>کد کوتاه تک رویداد</span></h1>

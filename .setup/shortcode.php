@@ -20,6 +20,10 @@
         <script type="text/javascript" src="https://cdn.zirbana.com/js/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="../engine/exoticengine.js"></script>
         <script>
+            var __config = { js: { debug: true } };
+        </script>
+        <script type="text/javascript" src="../engine/ti-get.js"></script>
+        <script>
             function generateShortcode() {
                 let s = '[zb-page';
                 $.map($('#settings-custom input[type="text"]'), k => {
@@ -39,6 +43,18 @@
             }
 
             $(document).ready(() => {
+                getTiCats(null, data => {
+                    if (data.ok)
+                        for (kitty in data.data) {
+                            console.log(kitty);
+                            $('#helloKitty').append(`
+<div class="exotic-input checkbox sellcat" cat="${data.data[kitty].key}">
+    <input name="cat" type="checkbox" />
+</div>
+<span>${data.data[kitty].text}</span>
+<br/>`);
+                        }
+                });
                 generateShortcode();
                 $('input[type="text"]').on('input', generateShortcode);
                 $('input[name="sone"]').on('exotic:check', function() {  
@@ -66,24 +82,30 @@
         <form class="radiogroup">
             <h1><div id="scodeone" class="exotic-input radiobox"><input type="radio" name="sone" /></div><span>کد کوتاه لیست</span></h1>
             <div id="settings-custom" class="main-settings ti-hidden">
-                <span class="duo-right">زمینه‌ها</span>
-                <input class="exotic-input textbox duo-left" name="cat" type="text" placeholder="<?= isset($app_config->categories->_filter) ? $app_config->categories->_filter : '' ?>" />
-                <br />
+                <div style="display: block">
+                    <div id="allcats" class="exotic-input checkbox">
+                        <input name="allcats" type="checkbox" />
+                    </div>
+                    <span>نمایش همه زمینه ها</span>
+                    <br />
+                    <div id="helloKitty" style="margin: 1rem">
+                    </div>
+                </div>
                 <span class="duo-right">رویداد‌ها</span>
-                <input class="exotic-input textbox duo-left" name="page_id" type="text" placeholder="<?= isset($app_config->list->page_id) ? $app_config->list->page_id : '' ?>" />
+                <input class="exotic-input textbox duo-left" name="page_id" type="text" placeholder="Page ID/URN(s)" />
                 <br />
                 <span class="duo-right">محل/سالن‌ها</span>
-                <input class="exotic-input textbox duo-left" name="venue_id" type="text" placeholder="<?= isset($app_config->list->venue) ? $app_config->list->venue : '' ?>" />
+                <input class="exotic-input textbox duo-left" name="venue_id" type="text" placeholder="Venue ID(s)" />
                 <br style="margin-bottom: 30px" />
                 <span>شناسه ها را با ویرگول انگلیسی "," از هم جدا کنید.</span>
             </div>
-			<div id="output" class="ti-hidden"></div>
+            <div id="output" class="ti-hidden"></div>
+            
             <h1><div id="scodesingle" class="exotic-input radiobox"><input type="radio" name="single" /></div><span>کد کوتاه تک رویداد</span></h1>
             <div id="settings-single" class="main-settings ti-hidden">
                 <span class="duo-right">شناسه رویداد</span>
                 <input class="exotic-input textbox duo-left" name="urn" type="text" placeholder="URN" />
             </div>
-            
 			<div id="outputs" class="ti-hidden"></div>
         </form>
         <center style="margin-bottom: 10px; margin-top: 15px;">Powered by <a><img src="http://x.anovase.com/logo-wide-w.svg" height="30px" style="vertical-align: baseline; margin-bottom: -5px;" /></a> 2018</center>

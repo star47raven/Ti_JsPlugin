@@ -36,7 +36,7 @@ form > div {
     display: flex;
     justify-content: space-evenly;
 }
-#settings-custom div {
+#settings-custom > div {
     display: flex;
     justify-content: space-evenly;
 }
@@ -73,11 +73,13 @@ br {
     margin-bottom: 1.5rem;
 }
 .duo-right {
-    float: right;
+    /*float: right;*/
     clear: right;
+    display: inline-block;
+    width: calc(100% - 32rem);
 }
 .duo-left {
-    float: left;
+    /*float: left;*/
     margin-left: 1.0rem;
     --width: 30.0rem !important;
 }

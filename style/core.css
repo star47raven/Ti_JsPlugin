@@ -1175,7 +1175,7 @@ div#tooltip {
 #ti-receiptHolder .ti-seperator {
 	height: unset;
 	flex-basis: auto;
-	margin: 15px;
+	margin: 20px;
 }
 
 .ti-btn.ti-warn {

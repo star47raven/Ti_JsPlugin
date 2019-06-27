@@ -123,8 +123,12 @@
                         __scroll_anchor = __scroll_pos;
                     }
                 });
-                if (__config.view == "normal")
-                    loadCats();
+                if (__config.view == "normal") {
+                    if (__config.categories._filter || !(__config.list.page_id || __config.list.venue))
+                        loadCats();
+                    else
+                        loadMixedList();
+                }
                 else if (__config.view == "single")
                     loadSingleView(__config.get.urn);
                 if (__config.user.override && __cypher) {
@@ -216,7 +220,7 @@
                 });
                 $('#ti-seatHolder .ti-btn:not(.ti-dead)').click(function(event) {
                     $('#ti-finalHolder #ti-xseats').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
-                    $('#ti-aftermathHolder #ti-xfinalseats').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
+                    $('#ti-aftermathHolder #ti-xfinalchairs').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
                     $('#ti-finalHolder #ti-xcost').text(toLocalisedNumbers(seperateDigits(__finalSeatData.total_price, ',') + " تومان"));
                     switchToFinal();
                 });
@@ -269,8 +273,10 @@
                     $('#ti-receiptHolder .ti-suffix').text(callData.data.item_behavior == "event" ? callData.data.venue.title : "");
                     switch (callData.data.sale.deliver_type) {
                         case "receipt":
-                            if (callData.data.attachment_url)
+                            if (callData.data.attachment_url) {
                                 $('#ti-receiptHolder #fileDownloadBtn').removeClass('ti-hidden');
+                                $('#ti-receiptHolder #ti-rcsavewarn').addClass('ti-hidden');
+                            }
                             break;
                         case "receipt_station":
                             $('#ti-receiptHolder .ti-seperator img').removeClass('ti-hidden').attr('src', callData.data.attachment_url);
@@ -280,7 +286,7 @@
                             break;
                     }
                     $('#ti-receiptHolder .ti-rcinst').text(callData.data.instance.title);
-                    $('#ti-receiptHolder .ti-rcseat').text(callData.data.sale.method == "event_seat" ? toLocalisedNumbers(callData.data.seats) : (toLocalisedNumbers(callData.data.seats) + " عدد"));
+                    $('#ti-receiptHolder .ti-rcseat').text(callData.data.sale.method == "event_seat" ? toLocalisedNumbers(callData.data.seats || '') : (toLocalisedNumbers(callData.data.seats || '1') + " عدد"));
                     $('#ti-receiptHolder .ti-rctrace').text("کد پیگیری " + toLocalisedNumbers(callData.data.trace_number));
                     if (callData.data.item_behavior == "event") {
                         $('#ti-receiptHolder #ti-rcaddr').removeClass('ti-hidden');
@@ -313,6 +319,10 @@
                             <p><i class="material-icons">event_seat</i><span class="ti-rcseat"></span></p>
                             <p><i class="material-icons">label</i><span class="ti-rctrace"></span></p>
                             <p id="ti-rcaddr" class="ti-hidden"><i class="material-icons">not_listed_location</i><span class="ti-rcaddr"></span></p>
+                            <p id="ti-rcsavewarn" style="color: var(--ti-accent)">
+                                <i class="material-icons" style="color: var(--ti-accent)">info</i>
+                                <span>لطفا اطلاعات رسید خود را ذخیره کنید، فایلهای بلیت را بر روی موبایل خود نگهدارید یا چاپ کنید، میتوانید از بارکد ها نیز عکس بگیرید.</span>
+                            </p>
                         <?php if ($cb_auth != true) { ?>
                             <p class="ti-error"><i class="material-icons">warning</i><span>مالکیت شما برای این خرید تایید نشد، رسید شما ممکن است معتبر باشد ولی این خرید در این وبسایت به نام شما ثبت نخواهد شد.</span></p>
                         <?php } ?>

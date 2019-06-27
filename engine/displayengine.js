@@ -125,6 +125,7 @@ function addChild(datC) {
         $('#ti-pickHolder .ti-xcontainer').append(xhtml);
         $('#ti-pickHolder .ti-witem:last-child').click(event => {
             initEventPage(datO, true);
+            switchToPick();
         });
     });
     lockLoader(false);
@@ -148,7 +149,7 @@ function addPick(datZ) {
                 switchToSeat();
                 $('#ti-seatHolder').addClass('fulfilled');
                 if (datZ.title)
-                    $('#ti-pickHolder ~ tr .ti-prefix').text(datZ.title);
+                    $('#ti-pickHolder ~ .flex-tr .ti-prefix').text(datZ.title);
                 $('#ti-seatHolder .ti-xframe').empty();
                 $('#ti-seatHolder .ti-xcontainer').empty();
                 lockLoader(true);
@@ -186,7 +187,7 @@ function addPick(datZ) {
                 $(this).addClass('selected');
                 __current_instance = $(this).attr('itemid');
                 if (datZ.title)
-                    $('#ti-pickHolder ~ tr .ti-prefix').text(datZ.title);
+                    $('#ti-pickHolder ~ .flex-tr .ti-prefix').text(datZ.title);
                 $('#ti-seatHolder').addClass('ti-numeric');
                 $('#ti-seatHolder').removeClass('ti-seatmap');
                 $('#ti-seatHolder .ti-spinner span.value').text(toLocalisedNumbers(1));
@@ -196,6 +197,7 @@ function addPick(datZ) {
                     $('#ti-seatHolder .ti-spinner .numeric').addClass('frozen');
                 onExoticNumericChange($('#ti-seatHolder .ti-spinner .numeric input'));
                 switchToSeat();
+                $('#ti-seatHolder').addClass('fulfilled');
             });
         }
         lockLoader(false);
@@ -294,6 +296,15 @@ function finaliseListLoad() {
         syncViewSize();
     if (DEBUG)
         console.log("call ended, finaliseListLoad on " + __current_cat + " with #" + __last_count);
+}
+
+function loadMixedList() {
+    __current_cat = "";
+    $('#ti-catSel').css('top', '-100%');
+    $('#ti-catSel + div').removeClass('ti-hidden');
+    $('#ti-catSel + div').css('top', '-100%');
+    $('#ti-listHeader').css('display', 'hidden');
+    loadMore(true);
 }
 
 function loadMore(force) {

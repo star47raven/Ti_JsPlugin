@@ -26,6 +26,12 @@
         <script>
             function generateShortcode() {
                 let s = '[zb-page';
+                if ($('#allcats').attr('check') != 'true') {
+                    s += 
+                        ' cat="' + 
+                        $('#helloKitty .sellcat[check="true"]').toArray()
+                        .reduce((a, c) => a += (a ? ',' : '') + $(c).attr('cat'), "") + '"';
+                }
                 $.map($('#settings-custom input[type="text"]'), k => {
                     //if ($(k).val())
                     s += ` ${$(k).attr('name')}="${$(k).val()}"`;
@@ -76,6 +82,16 @@
                         $('#settings-single').addClass('ti-hidden');
 						$('#outputs').addClass('ti-hidden');
 					}
+                });
+                $('#helloKitty').on('exotic:check', '.sellcat', function() {
+                    generateShortcode();
+                });
+                $('#allcats').on('exotic:check', function() {
+                    if ($('#allcats').attr('check') == 'true')
+                        $('#helloKitty').addClass('ti-hidden');
+                    else
+                        $('#helloKitty').removeClass('ti-hidden');
+                    generateShortcode();
                 });
             });
         </script>

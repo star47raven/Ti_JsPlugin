@@ -107,6 +107,7 @@
                     }
                 });
                 $('input[name="view"]').trigger('exotic:check');
+                
             });
         </script>
         <div id="ok-msg" style="display: none;padding: 20px;background: rgba(0,0,0,.5);text-align: center;">تغییرات با موفقیت ثبت شدند</div>

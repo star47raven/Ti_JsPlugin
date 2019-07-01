@@ -12,8 +12,6 @@ function getEventItemHtml(itemOptions, callback, state) {
 }
 
 function getEventPickHtml(pickOptions, callback, state) {
-    console.warn(pickOptions);
-
     var newtml = __comp_pick(pickOptions);
     callback(newtml, state);
 }

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('div.exotic-input.radiobox, div.exotic-input.checkbox').click(function() {
+    $('body').on('click', 'div.exotic-input.radiobox, div.exotic-input.checkbox', function() {
         var c = $(this).attr('check');
         if (c == 'true') {
             $(this).children('input').prop('checked', false);
@@ -20,15 +20,15 @@ $(document).ready(function() {
         document.documentElement.style.setProperty('--mouseX', e.pageX + "px");
         document.documentElement.style.setProperty('--mouseY', e.pageY + "px");
     });
-    $('*').mouseover(function() {
+    $('body').on('mouseover', '*', function() {
         if (!$(this).attr('tooltip'))
             return;
         $('#tooltip').css('display', 'block').html($(this).attr('tooltip'));
     });
-    $('*').mouseout(function() {
+    $('body').on('mouseout', '*', function() {
         $('#tooltip').css('display', 'none');
     });
-    $('div.numeric > .rem').click(function() {
+    $('body').on('click', 'div.numeric > .rem', function() {
 		var t = $(this).parent();
 		var xn = parseInt(t.children('input').val()) || 0;
 		var xMax = parseInt(t.children('input').attr('max'));
@@ -38,7 +38,7 @@ $(document).ready(function() {
         t.children('span.value').text(toLocalisedNumbers(n));
         onExoticNumericChange(t.children('input'));
 	});
-	$('div.numeric > .add').click(function() {
+	$('body').on('click', 'div.numeric > .add', function() {
 		var t = $(this).parent();
 		var xn = parseInt(t.children('input').val()) || 0;
 		var xMax = parseInt(t.children('input').attr('max'));

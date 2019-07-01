@@ -202,7 +202,7 @@
                     $('#ti-pickHolder .ti-xcontainer').empty();
                     lockLoader(true);
                     getShowtimes(__active_event.urn, function(zirdat) {
-                        if (!zirdat.ok) {
+                        if (!zirdat.ok || !zirdat.data || zirdat.data.length == 0) {
                             addPick({ title: 'سانسی برای این برنامه وجود ندارد' });
                             return;
                         }

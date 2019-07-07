@@ -1,5 +1,5 @@
 function INJECT(script) {
-    document.writeIn(`<script type="text/javascript" src="${script}"></script>`);
+    document.write(`\n<script type="text/javascript" src="${script}"></script>`);
 }
 
 INJECT `./struct.js/cat.js`;

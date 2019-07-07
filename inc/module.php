@@ -220,8 +220,16 @@
                 });
                 $('#ti-seatHolder .ti-btn:not(.ti-dead)').click(function(event) {
                     $('#ti-finalHolder #ti-xseats').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
-                    $('#ti-aftermathHolder #ti-xfinalchairs').text(toLocalisedNumbers(__finalSeatData.seats || "") || toLocalisedNumbers(__finalSeatData.count));
                     $('#ti-finalHolder #ti-xcost').text(toLocalisedNumbers(seperateDigits(__finalSeatData.total_price, ',') + " تومان"));
+
+                    $('#ti-aftermathHolder #ti-xfinalcount').text(toLocalisedNumbers(__finalSeatData.count));
+                    if (__finalSeatData.seats) {
+                        $('#finalChairs').removeClass('ti-hidden');
+                        $('#ti-aftermathHolder #ti-xfinalchairs').text(toLocalisedNumbers(__finalSeatData.seats));
+                    }
+                    else
+                        $('#finalChairs').addClass('ti-hidden');
+
                     switchToFinal();
                 });
                 $('#ti-finalHolder #ti-bvouch').click(function() {
@@ -276,6 +284,7 @@
                             if (callData.data.attachment_url) {
                                 $('#ti-receiptHolder #fileDownloadBtn').removeClass('ti-hidden');
                                 $('#ti-receiptHolder #ti-rcsavewarn').addClass('ti-hidden');
+                                $('#ti-receiptHolder #ti-rcdlwarn').removeClass('ti-hidden');
                             }
                             break;
                         case "receipt_station":
@@ -322,6 +331,10 @@
                             <p id="ti-rcsavewarn" style="color: var(--ti-accent)">
                                 <i class="material-icons" style="color: var(--ti-accent)">info</i>
                                 <span>لطفا اطلاعات رسید خود را ذخیره کنید، فایلهای بلیت را بر روی موبایل خود نگهدارید یا چاپ کنید، میتوانید از بارکد ها نیز عکس بگیرید.</span>
+                            </p>
+                            <p id="ti-rcdlwarn" class="ti-hidden" style="color: var(--ti-accent)">
+                                <i class="material-icons" style="color: var(--ti-accent)">info</i>
+                                <span>لطفا فایل را تا نهایت یک هفته دانلود کنید.</span>
                             </p>
                         <?php if ($cb_auth != true) { ?>
                             <p class="ti-error"><i class="material-icons">warning</i><span>مالکیت شما برای این خرید تایید نشد، رسید شما ممکن است معتبر باشد ولی این خرید در این وبسایت به نام شما ثبت نخواهد شد.</span></p>
@@ -517,7 +530,15 @@
                             </div>-->
                             <div class="ti-duo">
                                 <div class="ti-rightside">
-                                    <span>صندلی/تعداد</span>
+                                    <span>تعداد</span>
+                                </div>
+                                <div class="ti-leftside">
+                                    <span id="ti-xfinalcount" style="font-size: 2rem"></span>
+                                </div>
+                            </div>
+                            <div class="ti-duo" id="finalChairs">
+                                <div class="ti-rightside">
+                                    <span>صندلی</span>
                                 </div>
                                 <div class="ti-leftside">
                                     <span id="ti-xfinalchairs" style="font-size: 2rem"></span>

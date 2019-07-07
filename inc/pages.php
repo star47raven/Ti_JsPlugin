@@ -26,7 +26,7 @@ function load($atts) {
 	<script type="text/javascript" src="https://cdn.zirbana.com/js/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo $utility_js; ?>"></script>
 	<script type="text/javascript" src="<?php echo $scrollsync_js; ?>"></script>
-	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px); margin-top:-30px;"
+	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px);"
 	data="<?php echo plugins_url('module.php?'.$cat.$placeid.$pageid.'&'.$user_info, __FILE__ )?>"> </object>
 	<div style="height: 3px"></div>
 <?php return ob_get_end(); }?>
@@ -40,7 +40,7 @@ function loadsingle($atts){
 	<script type="text/javascript" src="https://cdn.zirbana.com/js/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo $utility_js; ?>"></script>
 	<script type="text/javascript" src="<?php echo $scrollsync_js; ?>"></script>
-	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px); margin-top:-30px;"
+	<object  id="anozb-plugfrm" style="width:100%;  height:var(--ti-plugin-height, 500px);"
 	data="<?php echo plugins_url('module.php?view=single&get~urn='.$urn, __FILE__ )?>"> </object>
 	<div style="height: 3px"></div>
 <?php return ob_get_end(); }?>

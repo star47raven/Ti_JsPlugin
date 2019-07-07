@@ -45,6 +45,14 @@ function initEventPage(i, isRef) {
     if (__active_event.image)
         $('#ti-bannerHolder img').attr('src', __active_event.image.normal_url || "");
 
+    if (__active_event.parent_id != (__this_parent ? __this_parent.id : -999))
+    {
+        __this_parent = null;
+        $('#ti-parentCall').addClass('ti-hidden');
+    }
+    else
+        $('#ti-parentCall').removeClass('ti-hidden');
+
     if (__active_event.has.child_pages) {
     		__this_parent = __active_event;
         // Add Child Picks
@@ -56,13 +64,6 @@ function initEventPage(i, isRef) {
         });
         $('#ti-parentCall').addClass('ti-hidden');
     }
-    else if (__active_event.parent_id != (__this_parent ? __this_parent.id : -999))
-    {
-        __this_parent = null;
-        $('#ti-parentCall').addClass('ti-hidden');
-    }
-    else
-        $('#ti-parentCall').removeClass('ti-hidden');
 
     // DIR & AUTH
     _nxaut = processMiniCast(__active_event);
@@ -133,6 +134,14 @@ function addChild(datC) {
 function addPick(datZ) {
     lockLoader(true);
     var ops = { id: datZ.id || "", name: datZ.title || "خرید", info: datZ.remained_text || "" };
+    switch (__active_event.sale.method) {
+        case "product": 
+            ops.info = toLocalisedNumbers(datZ.price) + " تومان، " + datZ.remained_text;
+            break;
+        case "eproduct":
+            ops.info = toLocalisedNumbers(datZ.price) + " تومان";
+            break;
+    }
     ops.discs = "";
     ops.discs += (datZ.general_discount ? '<div class="ti-disc-gen"></div>' : '') || '';
     ops.discs += (datZ.group_discount ? '<div class="ti-disc-grp"></div>' : '') || '';

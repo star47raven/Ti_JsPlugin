@@ -405,7 +405,7 @@ iframe.width-changed {
 }
 
 #ti-cardWrapper .ti-xcontainer p {
-	margin: .05rem 0;
+	margin: 1rem;
 	padding: 0 .1rem;
 	font-size: 1.4rem;
 	font-weight: 400;
@@ -1060,7 +1060,7 @@ div#tooltip {
 	order: 99;
 }
 .ti-duo {
-	margin: .9rem .4rem;
+	margin: 2.5rem .4rem;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;

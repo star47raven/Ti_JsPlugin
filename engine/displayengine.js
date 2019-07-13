@@ -108,7 +108,7 @@ function initEventPage(i, isRef) {
     $('#ti-eventHolder .ti-seperator').text(__active_event.short_desc || "");
     $('#ti-eventHolder .ti-xplate').text(__active_event.promo_desc || "");
 
-    if (__active_event.sale) {
+    if (__active_event.sale || __active_event.has.child_pages) {
         $('#ti-eventHolder .ti-btn:not(.ti-dead)').removeClass('ti-hidden');
     }
     else {
@@ -126,7 +126,7 @@ function addChild(datC) {
         $('#ti-pickHolder .ti-xcontainer').append(xhtml);
         $('#ti-pickHolder .ti-witem:last-child').click(event => {
             initEventPage(datO, true);
-            switchToPick();
+            $('#ti-eventHolder .ti-btn:not(.ti-dead)').click();
         });
     });
     lockLoader(false);

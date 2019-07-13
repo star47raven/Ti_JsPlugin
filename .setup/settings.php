@@ -133,21 +133,21 @@
             
             <h1>محلی سازی اطلاعات</h1>
             <div id="settings-custom" class="main-settings">
-                <div class="radiogroup">
+                <div class="radiogroup" radio-class="catx">
                     <div tooltip="فقط بلیط های قابل خرید در تیوال">
-                        <div id="cat_ticket_store" class="exotic-input radiobox">
+                        <div id="cat_ticket_store" radio-class="catx" class="exotic-input radiobox">
                             <input type="radio" name="categories.mode" value="ticket_store" />
                         </div>
                         <span>بلیت‌ها</span>
                     </div>
                     <div tooltip="بلیط ها و رویداد های قابل خرید در تیوال">
-                        <div id="cat_event_store" class="exotic-input radiobox">
+                        <div id="cat_event_store" radio-class="catx" class="exotic-input radiobox">
                             <input type="radio" name="categories.mode" value="event_store" />
                         </div>
                         <span>بلیت‌ها و رویدادها</span>
                     </div>
                     <div tooltip="همه محصولات قابل خرید در تیوال و زیربنا">
-                        <div id="cat_store" class="exotic-input radiobox">
+                        <div id="cat_store" radio-class="catx" class="exotic-input radiobox">
                             <input type="radio" name="categories.mode" value="store" />
                         </div>
                         <span>همه</span>

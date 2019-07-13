@@ -6,7 +6,7 @@ $(document).ready(function() {
             $(this).attr('check', 'false');
         }
         else {     
-            $(this).parents('.radiogroup').find('div.exotic-input.radiobox[check="true"]').click();
+            $(this).parents('.radiogroup[radio-class="' + $(this).attr('radio-class') + '"]').find('div.exotic-input.radiobox[check="true"]').click();
             $(this).children('input').prop('checked', true);
             $(this).attr('check', 'true');
         }

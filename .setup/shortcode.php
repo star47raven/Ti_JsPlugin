@@ -96,7 +96,7 @@
             });
         </script>
         <form class="radiogroup">
-            <h1><div id="scodeone" class="exotic-input radiobox"><input type="radio" name="sone" /></div><span>کد کوتاه لیست</span></h1>
+            <h1><div id="scodeone" radio-class="type" class="exotic-input radiobox"><input type="radio" name="sone" /></div><span>کد کوتاه لیست</span></h1>
             <div id="settings-custom" class="main-settings ti-hidden">
                 <div style="display: block">
                     <div id="allcats" class="exotic-input checkbox">
@@ -117,7 +117,7 @@
             </div>
             <div id="output" class="ti-hidden"></div>
             
-            <h1><div id="scodesingle" class="exotic-input radiobox"><input type="radio" name="single" /></div><span>کد کوتاه تک رویداد</span></h1>
+            <h1><div id="scodesingle" radio-class="type" class="exotic-input radiobox"><input type="radio" name="single" /></div><span>کد کوتاه تک رویداد</span></h1>
             <div id="settings-single" class="main-settings ti-hidden">
                 <span class="duo-right">شناسه رویداد</span>
                 <input class="exotic-input textbox duo-left" name="urn" type="text" placeholder="URN" />
